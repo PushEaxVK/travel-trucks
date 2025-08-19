@@ -4,7 +4,7 @@ import Container from "./components/Container";
 function App() {
   return (
     <>
-      <section className="bg-amber-300">
+      <section className="bg-grayDark">
         <Container>
           <h1 className="text-3xl font-bold underline">Hello world</h1>
         </Container>
