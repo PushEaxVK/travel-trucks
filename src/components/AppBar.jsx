@@ -4,22 +4,22 @@ import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 
 function AppBar() {
-  const linkStyle =
-    'font-medium text-[16px] leading-[1.5] text-center text-dark';
-  const activeLinkStyle = 'text-red';
   const setActiveClass = ({ isActive }) => {
-    return clsx(linkStyle, isActive && activeLinkStyle);
+    return clsx(
+      'font-medium text-[16px] leading-[1.5] text-center text-dark hover:text-red',
+      isActive && 'text-red'
+    );
   };
 
   return (
     <header className="bg-grayExtraLight border-b border-grayLighter">
       <Container>
         <div className="h-[72px] flex items-center justify-start flex-row gap-[450px]">
-          <a href="/">
+          <NavLink to="/">
             <svg className="w-[136px] h-[16px]">
               <use href="/icons.svg#logo"></use>
             </svg>
-          </a>
+          </NavLink>
           <nav>
             <ul className="flex gap-8">
               <li>
