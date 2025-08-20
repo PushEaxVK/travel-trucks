@@ -3,11 +3,9 @@ import Container from '../components/Container';
 
 function CatalogPage() {
   return (
-    <main>
-      <Container>
-        <h1>CatalogPage</h1>
-      </Container>
-    </main>
+    <Container>
+      <h1>CatalogPage</h1>
+    </Container>
   );
 }
 

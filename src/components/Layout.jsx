@@ -6,7 +6,9 @@ function Layout() {
   return (
     <>
       <AppBar />
-      <Outlet />
+      <main className="min-h-screen bg-no-repeat bg-cover w-full">
+        <Outlet />
+      </main>
     </>
   );
 }
