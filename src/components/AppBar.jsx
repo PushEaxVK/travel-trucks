@@ -12,7 +12,7 @@ function AppBar() {
   };
 
   return (
-    <header className="bg-grayExtraLight border-b border-grayLighter">
+    <header className="bg-grayExtraLight border-b border-grayLighter w-screen">
       <Container>
         <div className="h-[72px] flex items-center justify-start flex-row gap-[450px]">
           <NavLink to="/">
