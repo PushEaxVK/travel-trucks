@@ -1,10 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Layout from './components/Layout';
-import HomePage from './pages/HomePage';
 import CatalogPage from './pages/CatalogPage';
 import DetailsPage from './pages/DetailsPage';
 import NotFound from './pages/NotFoundPage';
+import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (
