@@ -1,14 +1,14 @@
 import React from 'react';
 import Container from '../components/Container';
 
-function HomePage() {
+function NotFound() {
   return (
     <main>
       <Container>
-        <h1>HomePage</h1>
+        <h1>404 Not found!</h1>
       </Container>
     </main>
   );
 }
 
-export default HomePage;
+export default NotFound;

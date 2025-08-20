@@ -1,14 +1,22 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Container from './components/Container';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import CatalogPage from './pages/CatalogPage';
+import DetailsPage from './pages/DetailsPage';
+import NotFound from './pages/NotFoundPage';
 
 function App() {
   return (
     <>
-      <section className="bg-grayDark">
-        <Container>
-          <h1 className="text-3xl font-bold underline">Hello world</h1>
-        </Container>
-      </section>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="catalog" element={<CatalogPage />} />
+          <Route path="catalog/:id" element={<DetailsPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </>
   );
 }
