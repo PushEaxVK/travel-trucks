@@ -2,6 +2,7 @@ import React from 'react';
 import Container from './Container';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
+import Icon from './Icon';
 
 function AppBar() {
   const setActiveClass = ({ isActive }) => {
@@ -16,9 +17,7 @@ function AppBar() {
       <Container>
         <div className="h-[72px] flex items-center justify-start flex-row gap-[450px]">
           <NavLink to="/">
-            <svg className="w-[136px] h-[16px]">
-              <use href="/icons.svg#logo"></use>
-            </svg>
+            <Icon id="logo" width={136} height={16} />
           </NavLink>
           <nav>
             <ul className="flex gap-8">
