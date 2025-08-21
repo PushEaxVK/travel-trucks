@@ -14,7 +14,9 @@ function Button({
   const classes = clsx(
     'cursor-pointer flex items-center justify-center rounded-[200px] h-[56px]',
     'text-[16px] font-medium leading-[1.5] tracking-[-0.01em]',
-    `w-[${width}px]`,
+    width === 145 && 'w-[145px]',
+    width === 166 && 'w-[166px]',
+    width === 173 && 'w-[173px]',
     variant === 'red' && ['bg-redLight text-white', 'hover:bg-red'],
     variant === 'white' && [
       'bg-white text-dark border border-grayLight',
