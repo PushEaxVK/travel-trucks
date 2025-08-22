@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Icon from './Icon';
+import FeatureBadge from './FeatureBadge';
 
 function CapmerCard() {
   return (
@@ -24,9 +25,18 @@ function CapmerCard() {
             <Icon id="heart" width={26} height={24} />
           </div>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center mb-6">
           <Icon id="star-yellow" width={16} height={16} className="mr-1" />
           <p className="mr-4">4.4(2 Reviews)</p>
+          <Icon id="map" width={16} height={16} className="mr-1" />
+          <p>Kyiv, Ukraine</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
+          <FeatureBadge />
+          <FeatureBadge />
+          <FeatureBadge />
+          <FeatureBadge />
+          <FeatureBadge />
         </div>
         <Button as="link" to="/catalog/1" width={166}>
           Show more
