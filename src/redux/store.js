@@ -1,14 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-
-const initialState = {
-  items: [],
-  filters: [],
-};
-
-const rootReducer = (state = initialState, action) => {
-  return state;
-};
+import { campersReducer } from './campers/slice';
 
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    campers: campersReducer,
+  },
 });
