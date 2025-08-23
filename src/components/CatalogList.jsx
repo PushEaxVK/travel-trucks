@@ -4,7 +4,7 @@ import CapmerCard from './CapmerCard';
 
 function CatalogList() {
   return (
-    <div className="border border-amber-950 w-full flex items-center flex-col gap-10">
+    <div className="w-full flex items-center flex-col gap-10 pb-[52px]">
       <div className="w-full flex flex-col gap-8">
         <CapmerCard />
         <CapmerCard />
