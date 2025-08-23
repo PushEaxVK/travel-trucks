@@ -31,7 +31,10 @@ function CapmerCard() {
           <Icon id="map" width={16} height={16} className="mr-1" />
           <p>Kyiv, Ukraine</p>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <p className="mb-6 font-normal text-base leading-6 text-grayDark">
+          The pictures shown here are example vehicles of the respective...
+        </p>
+        <div className="flex flex-wrap gap-2 mb-6">
           <FeatureBadge />
           <FeatureBadge />
           <FeatureBadge />
