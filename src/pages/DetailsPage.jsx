@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCamper } from '../redux/campers/operations';
 import { selectCamper, selectLoadingCamper } from '../redux/campers/selectors';
 import Icon from '../components/Icon';
+import ContactForm from '../components/ContactForm';
 
 function DetailsPage() {
   const { id } = useParams();
@@ -36,7 +37,7 @@ function DetailsPage() {
           <p className="font-semibold text-[24px] leading-[1.33] text-dark mb-7">
             €{camper.price.toFixed(2)}
           </p>
-          <ul className="flex justify-between mb-7">
+          <ul className="flex  gap-12 justify-items-start mb-7">
             {camper.gallery.map(({ original }) => (
               <li
                 key={original}
@@ -52,6 +53,7 @@ function DetailsPage() {
           <p className="font-normal text-[16px] leading-[1.5] text-grayDark mb-[60px]">
             {camper.description}
           </p>
+          <ContactForm />
         </div>
       )}
       {isLoading && <p>Loading data...</p>}
