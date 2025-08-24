@@ -26,7 +26,7 @@ function CapmerCard({ camperData }) {
             <p className="font-semibold text-[24px] leading-[1.33] text-dark">
               €{camperData.price.toFixed(2)}
             </p>
-            <Icon id="heart" width={26} height={24} />
+            <Icon id="heart" width={26} height={24} className="text-redLight" />
           </div>
         </div>
         <div className="flex items-center mb-6">
