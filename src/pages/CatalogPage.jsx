@@ -11,8 +11,6 @@ function CatalogPage() {
   const dispatch = useDispatch();
   const filters = useSelector(selectFilters);
   const page = useSelector(selectPage);
-  console.log(filters);
-  console.log(page);
 
   useEffect(() => {
     dispatch(

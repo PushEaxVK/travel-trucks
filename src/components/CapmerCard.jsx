@@ -4,7 +4,6 @@ import Icon from './Icon';
 import FeatureBadge from './FeatureBadge';
 
 function CapmerCard({ camperData }) {
-  // console.log(camperData);
   const img = camperData.gallery[0].thumb;
   const alt = `${camperData.name} Image`;
   return (
@@ -37,7 +36,6 @@ function CapmerCard({ camperData }) {
           <p>{camperData.location}</p>
         </div>
         <p className="mb-6 font-normal text-base leading-6 text-grayDark line-clamp-1">
-          {/* The pictures shown here are example vehicles of the respective... */}
           {camperData.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-6">

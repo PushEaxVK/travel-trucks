@@ -15,6 +15,14 @@ const initialState = {
 const campersSlice = createSlice({
   name: 'campersList',
   initialState,
+  reducers: {
+    setPage: (state, action) => {
+      state.campers.page = action.payload;
+    },
+    resetPage: (state) => {
+      state.campers.page = 1;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAllCampers.fulfilled, (state, action) => {
@@ -40,4 +48,5 @@ const campersSlice = createSlice({
   },
 });
 
+export const { setPage, resetPage } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;
