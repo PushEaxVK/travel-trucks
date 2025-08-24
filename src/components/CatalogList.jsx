@@ -4,6 +4,7 @@ import CapmerCard from './CapmerCard';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectAllCampers,
+  selectLoadingCampers,
   selectPage,
   selectPages,
 } from '../redux/campers/selectors';
@@ -13,6 +14,7 @@ function CatalogList() {
   const items = useSelector(selectAllCampers);
   const page = useSelector(selectPage);
   const pages = useSelector(selectPages);
+  const loading = useSelector(selectLoadingCampers);
 
   const dispatch = useDispatch();
 
@@ -29,7 +31,8 @@ function CatalogList() {
           </li>
         ))}
       </ul>
-      {page < pages && (
+      {loading && <p>Loading...</p>}
+      {page < pages && !loading && (
         <Button
           as="button"
           variant="white"
