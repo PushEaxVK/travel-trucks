@@ -6,6 +6,7 @@ import FormFilterButton from './FormFilterButton';
 import Icon from './Icon';
 import { useDispatch } from 'react-redux';
 import { changeFilters } from '../redux/filters/slice';
+import { resetPage } from '../redux/campers/slice';
 
 const vehicleEquipment = [
   { value: 'AC', label: 'AC', icon: 'AC' },
@@ -31,6 +32,7 @@ function SearchForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
+    dispatch(resetPage());
     dispatch(
       changeFilters({
         location: values.location,
