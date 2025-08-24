@@ -10,7 +10,7 @@ import { resetPage } from '../redux/campers/slice';
 
 const vehicleEquipment = [
   { value: 'AC', label: 'AC', icon: 'AC' },
-  { value: 'Automatic', label: 'Automatic', icon: 'automatic' },
+  { value: 'automatic', label: 'Automatic', icon: 'automatic' },
   { value: 'kitchen', label: 'Kitchen', icon: 'kitchen' },
   { value: 'TV', label: 'TV', icon: 'TV' },
   { value: 'bathroom', label: 'Bathroom', icon: 'bathroom' },

@@ -24,13 +24,18 @@ function CatalogList() {
 
   return (
     <div className="w-full flex items-center flex-col gap-10 pb-[52px]">
-      <ul className="w-full flex flex-col gap-8">
-        {items.map((item) => (
-          <li key={item.id}>
-            <CapmerCard camperData={item} />
-          </li>
-        ))}
-      </ul>
+      {items && items.length > 0 && (
+        <ul className="w-full flex flex-col gap-8">
+          {items.map((item) => (
+            <li key={item.id}>
+              <CapmerCard camperData={item} />
+            </li>
+          ))}
+        </ul>
+      )}
+
+      {(!items || items.length === 0) && <p>Not found...</p>}
+
       {loading && <p>Loading...</p>}
       {page < pages && !loading && (
         <Button
