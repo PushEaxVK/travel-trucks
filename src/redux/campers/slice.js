@@ -19,7 +19,6 @@ const campersSlice = createSlice({
     builder
       .addCase(fetchAllCampers.fulfilled, (state, action) => {
         const { items, total, page, pages } = action.payload;
-        console.log('Items: ', items);
         if (page === 1) {
           state.campers.items = items;
         } else {
