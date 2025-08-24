@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllCampers } from './operations';
+import { fetchAllCampers, fetchCamper } from './operations';
 
 const initialState = {
   campers: {
@@ -9,6 +9,11 @@ const initialState = {
     pages: 1,
     loadingCampers: false,
     errorCampers: null,
+  },
+  camper: {
+    camper: null,
+    loadingCamper: false,
+    errorCamper: null,
   },
 };
 
@@ -44,6 +49,19 @@ const campersSlice = createSlice({
       .addCase(fetchAllCampers.rejected, (state, action) => {
         state.campers.errorCampers = action.payload;
         state.campers.loadingCampers = false;
+      })
+      .addCase(fetchCamper.fulfilled, (state, action) => {
+        const camper = action.payload;
+        state.camper.camper = camper;
+        state.camper.loadingCamper = false;
+      })
+      .addCase(fetchCamper.pending, (state) => {
+        state.camper.errorCamper = null;
+        state.camper.loadingCamper = true;
+      })
+      .addCase(fetchCamper.rejected, (state, action) => {
+        state.camper.errorCamper = action.payload;
+        state.camper.loadingCamper = false;
       });
   },
 });

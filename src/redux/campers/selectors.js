@@ -8,3 +8,7 @@ export const selectTotalCampers = (state) => state.campers.campers.total;
 export const selectEquipment = (state) =>
   state.campers.campers.vehicleEquipment;
 export const selectvehicleType = (state) => state.campers.campers.vehicleType;
+
+export const selectCamper = (state) => state.campers.camper.camper;
+export const selectLoadingCamper = (state) =>
+  state.campers.camper.loadingCamper;
