@@ -4,6 +4,8 @@ import { Formik, Form, Field } from 'formik';
 import clsx from 'clsx';
 import FormFilterButton from './FormFilterButton';
 import Icon from './Icon';
+import { useDispatch } from 'react-redux';
+import { changeFilters } from '../redux/filters/slice';
 
 const vehicleEquipment = [
   { value: 'AC', label: 'AC', icon: 'AC' },
@@ -25,9 +27,19 @@ const initialValues = {
   type: '',
 };
 
-const handleSubmit = (values, actions) => {};
-
 function SearchForm() {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, actions) => {
+    dispatch(
+      changeFilters({
+        location: values.location,
+        equipment: values.equipment,
+        vechileType: values.type,
+      })
+    );
+  };
+
   return (
     <div className="w-[360px] flex shrink-0">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>

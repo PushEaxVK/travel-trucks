@@ -8,7 +8,7 @@ const slice = createSlice({
     vechileType: '',
   },
   reducers: {
-    changeFiltres: (state, action) => {
+    changeFilters: (state, action) => {
       state.location = action.payload.location;
       state.equipment = action.payload.equipment;
       state.vechileType = action.payload.vechileType;
@@ -16,6 +16,6 @@ const slice = createSlice({
   },
 });
 
-export const { changeFiltres } = slice.actions;
+export const { changeFilters } = slice.actions;
 
 export default slice.reducer;
