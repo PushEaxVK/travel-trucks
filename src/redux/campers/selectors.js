@@ -1,12 +1,10 @@
-export const selectAllCampers = (state) => state.campersList.campers.items;
+export const selectAllCampers = (state) => state.campers.campers.items;
 export const selectLoadingCampers = (state) =>
-  state.campersList.campers.loadingCampers;
-export const selectErrorCampers = (state) =>
-  state.campersList.campers.errorCampers;
-export const selectPage = (state) => state.campersList.campers.page;
-export const selectPages = (state) => state.campersList.campers.pages;
-export const selectTotalCampers = (state) => state.campersList.campers.total;
+  state.campers.campers.loadingCampers;
+export const selectErrorCampers = (state) => state.campers.campers.errorCampers;
+export const selectPage = (state) => state.campers.campers.page;
+export const selectPages = (state) => state.campers.campers.pages;
+export const selectTotalCampers = (state) => state.campers.campers.total;
 export const selectEquipment = (state) =>
-  state.campersList.campers.vehicleEquipment;
-export const selectvehicleType = (state) =>
-  state.campersList.campers.vehicleType;
+  state.campers.campers.vehicleEquipment;
+export const selectvehicleType = (state) => state.campers.campers.vehicleType;
