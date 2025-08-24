@@ -5,7 +5,13 @@ import { buildCampersUrl } from '../../services/buildCampersUrl';
 export const fetchAllCampers = createAsyncThunk(
   'campers/fetchAll',
   async (
-    { page = 1, limit = 5, filterEquipment = [], filterVehicleType = null },
+    {
+      page = 1,
+      limit = 5,
+      filterEquipment = [],
+      filterVehicleType = null,
+      location = '',
+    },
     thunkAPI
   ) => {
     try {
@@ -14,6 +20,7 @@ export const fetchAllCampers = createAsyncThunk(
         limit,
         filterEquipment,
         filterVehicleType,
+        location,
       });
       const response = await axios.get(url);
       const pages = Math.ceil(response.data.total / limit);
@@ -24,7 +31,6 @@ export const fetchAllCampers = createAsyncThunk(
         page: page > pages ? pages : page,
         pages,
       };
-      console.log('return data');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
