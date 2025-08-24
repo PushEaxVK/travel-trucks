@@ -6,6 +6,8 @@ import FeatureBadge from './FeatureBadge';
 function CapmerCard({ camperData }) {
   const img = camperData.gallery[0].thumb;
   const alt = `${camperData.name} Image`;
+  const link = `/catalog/${camperData.id}`;
+
   return (
     <div className="p-6 flex flex-row gap-6 border border-grayLight rounded-[20px]">
       <div className="rounded-[10px] w-[292px] h-[320px] overflow-hidden shrink-0">
@@ -22,7 +24,7 @@ function CapmerCard({ camperData }) {
           </h3>
           <div className="flex gap-3 items-center">
             <p className="font-semibold text-[24px] leading-[1.33] text-dark">
-              €{camperData.price}
+              €{camperData.price.toFixed(2)}
             </p>
             <Icon id="heart" width={26} height={24} />
           </div>
@@ -39,13 +41,18 @@ function CapmerCard({ camperData }) {
           {camperData.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-6">
-          <FeatureBadge />
-          <FeatureBadge />
-          <FeatureBadge />
-          <FeatureBadge />
-          <FeatureBadge />
+          {camperData.transmission === 'automatic' && <FeatureBadge />}
+          {camperData.engine === 'petrol' && <FeatureBadge icon="Petrol" />}
+          {camperData.kitchen && <FeatureBadge icon="kitchen" />}
+          {camperData.radio && <FeatureBadge icon="radio" />}
+          {camperData.bathroom && <FeatureBadge icon="bathroom" />}
+          {camperData.refrigerator && <FeatureBadge icon="refrigerator" />}
+          {camperData.microwave && <FeatureBadge icon="microwave" />}
+          {camperData.gas && <FeatureBadge icon="gas" />}
+          {camperData.water && <FeatureBadge icon="water" />}
+          {camperData.AC && <FeatureBadge icon="AC" />}
         </div>
-        <Button as="link" to="/catalog/1" width={166}>
+        <Button as="link" to={link} width={166}>
           Show more
         </Button>
       </div>
