@@ -2,19 +2,21 @@ import React from 'react';
 import Button from './Button';
 import { Formik, Form, Field } from 'formik';
 import clsx from 'clsx';
+import FormFilterButton from './FormFilterButton';
+import Icon from './Icon';
 
 const vehicleEquipment = [
   { value: 'AC', label: 'AC', icon: 'AC' },
-  { value: 'Automatic', label: 'Automatic', icon: '' },
-  { value: 'kitchen', label: 'Kitchen', icon: '' },
-  { value: 'TV', label: 'TV', icon: '' },
-  { value: 'bathroom', label: 'Bathroom', icon: '' },
+  { value: 'Automatic', label: 'Automatic', icon: 'automatic' },
+  { value: 'kitchen', label: 'Kitchen', icon: 'kitchen' },
+  { value: 'TV', label: 'TV', icon: 'TV' },
+  { value: 'bathroom', label: 'Bathroom', icon: 'bathroom' },
 ];
 
 const vehicleTypes = [
-  { value: 'panelTruck', label: 'Van', icon: '' },
-  { value: 'fullyIntegrated', label: 'Fully Integrated', icon: '' },
-  { value: 'alcove', label: 'Alcove', icon: '' },
+  { value: 'panelTruck', label: 'Van', icon: 'Van' },
+  { value: 'fullyIntegrated', label: 'Fully Integrated', icon: 'Integrated' },
+  { value: 'alcove', label: 'Alcove', icon: 'alcove' },
 ];
 
 const initialValues = {
@@ -27,7 +29,7 @@ const handleSubmit = (values, actions) => {};
 
 function SearchForm() {
   return (
-    <div className="w-[360px]">
+    <div className="w-[360px] flex shrink-0">
       <Formik initialValues={initialValues} onSubmit={handleSubmit}>
         {({
           values,
@@ -39,23 +41,42 @@ function SearchForm() {
         }) => (
           <Form>
             {/* Location */}
-            <div>
-              <label htmlFor="">Location</label>
-              <Field name="location" placeholder="Kyiv, Ukraine" />
+            <div className="flex flex-col gap-2 mb-10">
+              <label
+                htmlFor="location"
+                className="font-normal text-[16px] leading-[1.5] text-gray"
+              >
+                Location
+              </label>
+              <div className="relative">
+                <Icon
+                  id="map"
+                  width={20}
+                  height={20}
+                  className="absolute left-5 top-1/2 -translate-y-1/2"
+                />
+                <Field
+                  name="location"
+                  placeholder="Kyiv, Ukraine"
+                  className="rounded-[12px] bg-grayExtraLight h-[56px] pl-12 w-full"
+                />
+              </div>
             </div>
 
             {/* Filters title */}
-            <div>
-              <h3>Filters</h3>
-            </div>
+            <h3 className="font-medium text-[16px] leading-[1.5] text-grayDark mb-8">
+              Filters
+            </h3>
 
             {/* Vehicle equipment */}
             <div>
-              <h4>Vehicle equipment</h4>
-              <div>
+              <h4 className="font-semibold text-[20px] leading-[1.2] text-dark mb-6">
+                Vehicle equipment
+              </h4>
+              <div className="bg-grayLight w-full h-[1px] mb-6" />
+              <div className="flex flex-wrap gap-x-3 gap-y-2 mb-8">
                 {vehicleEquipment.map((item) => (
-                  <button
-                    type="button"
+                  <FormFilterButton
                     key={item.value}
                     onClick={() => {
                       if (values.equipment.includes(item.value)) {
@@ -70,39 +91,34 @@ function SearchForm() {
                         ]);
                       }
                     }}
-                    className={clsx(
-                      'border',
-                      values.equipment.includes(item.value)
-                        ? 'border-red-700 bg-gray-500'
-                        : 'border-gray-600'
-                    )}
-                  >
-                    <span>icon</span>
-                    <span>label</span>
-                  </button>
+                    label={item.label}
+                    icon={item.icon}
+                    selected={values.equipment.includes(item.value)}
+                  />
                 ))}
               </div>
             </div>
 
             {/* Vehicle type */}
-            <div>
-              <h4>Vehicle type</h4>
-              <div>
+            <div className="mb-10">
+              <h4 className="font-semibold text-[20px] leading-[1.2] text-dark mb-6">
+                Vehicle type
+              </h4>
+              <div className="bg-grayLight w-full h-[1px] mb-6" />
+              <div className="flex gap-3">
                 {vehicleTypes.map((item) => (
-                  <button
-                    type="button"
+                  <FormFilterButton
                     key={item.value}
-                    onClick={() => setFieldValue('type', item.value)}
-                    className={clsx(
-                      'border',
-                      values.type === item.value
-                        ? 'border-red-700 bg-gray-500'
-                        : 'border-gray-600'
-                    )}
-                  >
-                    <span>icon</span>
-                    <span>label</span>
-                  </button>
+                    onClick={() =>
+                      setFieldValue(
+                        'type',
+                        values.type === item.value ? '' : item.value
+                      )
+                    }
+                    label={item.label}
+                    icon={item.icon}
+                    selected={values.type === item.value}
+                  />
                 ))}
               </div>
             </div>
