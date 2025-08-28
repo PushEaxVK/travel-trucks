@@ -9,12 +9,14 @@ import {
   selectPages,
 } from '../redux/campers/selectors';
 import { setPage } from '../redux/campers/slice';
+import { selectFavorites } from '../redux/favorites/selectors';
 
 function CatalogList() {
   const items = useSelector(selectAllCampers);
   const page = useSelector(selectPage);
   const pages = useSelector(selectPages);
   const loading = useSelector(selectLoadingCampers);
+  const favorites = useSelector(selectFavorites);
 
   const dispatch = useDispatch();
 
@@ -28,7 +30,10 @@ function CatalogList() {
         <ul className="w-full flex flex-col gap-8">
           {items.map((item) => (
             <li key={item.id}>
-              <CapmerCard camperData={item} />
+              <CapmerCard
+                camperData={item}
+                isFavorite={favorites.includes(item.id)}
+              />
             </li>
           ))}
         </ul>
