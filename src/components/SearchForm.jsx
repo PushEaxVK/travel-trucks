@@ -71,7 +71,7 @@ function SearchForm() {
                 />
                 <Field
                   name="location"
-                  placeholder="Kyiv, Ukraine"
+                  placeholder="City"
                   className="rounded-[12px] bg-grayExtraLight h-[56px] pl-12 w-full"
                 />
               </div>
