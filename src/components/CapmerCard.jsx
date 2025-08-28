@@ -2,11 +2,20 @@ import React from 'react';
 import Button from './Button';
 import Icon from './Icon';
 import FeatureBadge from './FeatureBadge';
+import clsx from 'clsx';
+import { useDispatch } from 'react-redux';
+import { toogleFavorite } from '../redux/favorites/slice';
 
-function CapmerCard({ camperData }) {
+function CapmerCard({ camperData, isFavorite }) {
   const img = camperData.gallery[0].thumb;
   const alt = `${camperData.name} Image`;
   const link = `/catalog/${camperData.id}`;
+
+  const dispatch = useDispatch();
+
+  const handleFavorite = () => {
+    dispatch(toogleFavorite(camperData.id));
+  };
 
   return (
     <div className="p-6 flex flex-row gap-6 border border-grayLight rounded-[20px]">
@@ -26,7 +35,17 @@ function CapmerCard({ camperData }) {
             <p className="font-semibold text-[24px] leading-[1.33] text-dark">
               €{camperData.price.toFixed(2)}
             </p>
-            <Icon id="heart" width={26} height={24} className="text-redLight" />
+            <button className="cursor-pointer" onClick={handleFavorite}>
+              <Icon
+                id="heart"
+                width={26}
+                height={24}
+                className={clsx(
+                  isFavorite && 'text-redLight',
+                  !isFavorite && 'text-dark'
+                )}
+              />
+            </button>
           </div>
         </div>
         <div className="flex items-center mb-6">
